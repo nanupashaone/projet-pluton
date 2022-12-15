@@ -24,8 +24,8 @@ header {
     flex-wrap: wrap;
 }
 
-header .menu_side, 
-.song_side {
+header .menu_side, .song_side {
+    position: relative;
     width: 25%;
     height: 90%;
     /* border: 1px solid #fff; */
@@ -42,7 +42,7 @@ header .song_side {
 header .master_play {
     width: 100%;
     height: 10%;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     background: #111727;
     box-shadow: 0px 3px 8px #090f1f;
 }
@@ -108,12 +108,17 @@ header .menu_side .playlist .active .bi {
  display: flex;
  margin-right: 20px;
 }
-
+/* encadrement pour la playlist */
 header .menu_side .menu_song {
  width: 100%;
  height: 300px;
- border: 1px solid #fff;
+ /* border: 1px solid #fff; */
  margin-top: 40px;
+ overflow: auto;
+}
+
+header .menu_side .menu_song::-webkit-scrollbar {
+ display: none;
 }
 
 header .menu_side .menu_song li {
@@ -123,10 +128,165 @@ header .menu_side .menu_song li {
  display: flex;
  align-items: center;
  margin-bottom: 10px;
+ cursor: pointer;
+ transition: .3s linear;
  
 }
 
 /* REPRENDRE LA VIDEO A 30 MIN 10 */
 
+header .menu_side .menu_song li:hover {
+    background: rgb(105, 105, 105, .1);
+    
+   }
+
+   header .menu_side .menu_song li img {
+    width: 32px;
+    height: 32px;
+    margin-left: 25px;
+   }
+
+   header .menu_side .menu_song li h5 {
+    font-size: 11px;
+    margin-left: 15px;
+    width: 170px;
+   /* border: 1px solid white; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   }
+
+   header .menu_side .menu_song li h5 .subtitle {
+    font-size: 9px;
+    color: #4c5262;
+    
+   }
+   
+   header .menu_side .menu_song li .bi {
+    position: absolute;
+    right: 15px;
+   }
+
+header .master_play {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+header .master_play .wave {
+    width: 30px;
+    height: 30px;
+   /* border: 1px solid #fff; */
+    padding-bottom: 5px;
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+}
+
+header .master_play .wave .wave1 {
+    width: 3px;
+    height: 10px;
+    background: #36e2ec;
+    margin-right: 3px;
+    border-radius: 10px 10px 0px 0px;
+    animation: unset; 
+    
+}
+
+header .master_play .wave .wave1:nth-child(2) {
+    height: 13px;
+   /* margin-right: 3.5px; */
+   /* animation-delay: .4s; */
+
+}
+
+header .master_play .wave .wave1:nth-child(3) {
+    height: 8px;
+   /* animation-delay: .8s; */
+
+}
 
 
+
+/* javascript classes */
+
+header .master_play .active1 .wave1 {
+    animation: wave .5s linear infinite;
+
+}
+
+header .master_play .active1 .wave1:nth-child(2) {
+    
+    animation-delay: .4s;
+
+}
+
+header .master_play .active1 .wave1:nth-child(3) {
+    
+    animation-delay: .8s;
+
+}
+
+@keyframes wave {
+    0% {
+        height: 10px;
+    }
+    50% {
+        height: 15px;
+    }
+    100% {
+        height: 10px;
+    }
+}
+
+
+header .master_play img {
+    width: 35px;
+    height: 35px;
+}
+
+header .master_play h5 {
+   width: 130px;
+   /* border: 1px solid #fff; */
+   margin-left: 15px;
+   color: #fff;
+   line-height: 17px;
+   /* overflow: hidden;
+    text-overflow: ellipsis;
+   white-space: nowrap; */
+   font-size: 13px;
+}
+
+header .master_play h5 .subtitle {
+   font-size: 11px;
+   color: #4c5262;
+   
+
+}
+
+header .master_play .icon {
+    font-size: 20px;
+    color: #fff;
+    margin: 0px 20px 0px 40px;
+    outline: none;
+    display: flex;
+    align-items: center;
+}
+
+header .master_play .icon .bi {
+    cursor: pointer;
+    outline: none;
+
+}
+
+header .master_play .icon .shuffle {
+    font-size: 17px;
+    margin-right: 10px;
+    width: 17.5px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+
+/* REPRENDRE A 1:01:33 */
